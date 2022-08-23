@@ -6,8 +6,9 @@
 }
 
 .wrapper {
-  width: 80%;
+  width: 65%;
   margin: auto;
+  margin-top: 5em;
 }
 body {
   margin: 0;
@@ -20,7 +21,7 @@ body {
 .logo {
   font-size: 2rem;
   font-family: poppins, sans-serif;
-  color: white;
+  color: rgb(42, 61, 105);
   margin-left: 3rem;
 }
 nav {
@@ -37,13 +38,14 @@ ul {
 }
 
 .password-field {
-  width: fit-content;
+  width: 90%;
   padding: 0.75rem;
   border-radius: 5px;
-  background: #273549;
+  background: #1f2937;
   margin: auto;
   margin-top: 1rem;
   color: #10b981;
+  text-align: center;
 }
 
 .space {
@@ -96,6 +98,10 @@ ul {
 
 .green-text {
   color: #10b981;
+}
+
+.blue-text {
+  color: rgb(216, 216, 231);
 }
 
 .entries {
