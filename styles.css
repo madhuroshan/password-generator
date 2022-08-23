@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #18191a;
+  background: #1f2937;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: aliceblue;
 }
@@ -31,14 +31,23 @@ ul {
   width: fit-content;
   padding: 0.75rem;
   border-radius: 5px;
-  background-color: #2f3134;
+  background: #273549;
   margin: auto;
   margin-top: 1rem;
+  color: #10b981;
+}
+
+.space {
+  height: 3px;
+  width: 90%;
+  margin: auto;
+  margin-top: 1em;
+  background-color: #4f5d6f;
 }
 
 .container {
-  padding: 1rem;
-  background-color: #4c4e50;
+  padding: 1rem 2rem;
+  background: #273549;
   width: fit-content;
   margin: auto;
   border-radius: 10px;
@@ -50,6 +59,25 @@ ul {
   border-radius: 4px;
   padding: 0.5rem;
   margin: auto;
+}
+
+.generate-button {
+  padding: 0.75em 1.5em;
+  font-size: 16px;
+  color: white;
+  background: #10b981;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.generate-button:hover {
+  background: #34d399;
+}
+
+.entries {
+  display: grid;
+  place-items: center;
 }
 
 .password-length:focus {
