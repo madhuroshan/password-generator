@@ -7,6 +7,8 @@ passwordLengthInput.addEventListener(
 
 const generateButton = document.querySelector(".generate-button");
 let passwordField = document.querySelector(".password-field");
+
+passwordField.textContent = "";
 const characters = [
   "a",
   "b",
