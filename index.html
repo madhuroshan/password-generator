@@ -7,31 +7,39 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+    </style>
   </head>
   <body>
-    <h1 class="logo">roshan</h1>
-    <ul class="features">
-      <li>Set the desired length of Password</li>
-      <li></li>
-    </ul>
-    <div class="container">
-      <h2>Password Generator</h2>
+    <nav class="navbar"><h1 class="logo">roshan</h1></nav>
 
-      <div class="entries">
-        <input
-          type="number"
-          class="password-length"
-          min="8"
-          max="15"
-          placeholder="Length"
-        />
-        <br />
-        <button class="generate-button">Generate Password</button>
+    <div class="wrapper">
+      <h2>
+        Generate a <br />
+        <span class="green-text">random password</span>
+      </h2>
+      <p>Never use an insecure password again</p>
+
+      <div class="container">
+        <h2>Password Generator</h2>
+
+        <div class="entries">
+          <input
+            type="number"
+            class="password-length"
+            min="8"
+            max="15"
+            placeholder="Length"
+          />
+          <br />
+          <button class="generate-button">Generate Password</button>
+        </div>
+        <div class="space"></div>
+        <div class="password-field">random-password</div>
       </div>
-      <div class="space"></div>
-      <div class="password-field">random-password</div>
     </div>
-
     <footer class="footer">
       <div class="copyrights"></div>
       <div class="social-media-links"></div>

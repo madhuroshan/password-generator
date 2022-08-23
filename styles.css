@@ -2,21 +2,30 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  font-family: poppins, sans-serif;
 }
 
+.wrapper {
+  width: 80%;
+  margin: auto;
+}
 body {
   margin: 0;
   padding: 0;
   background: #1f2937;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: aliceblue;
+  font-family: poppins, sans-serif;
+  color: white;
 }
 
 .logo {
   font-size: 2rem;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  color: rgb(119, 209, 28);
-  margin-left: 2rem;
+  font-family: poppins, sans-serif;
+  color: white;
+  margin-left: 3rem;
+}
+nav {
+  background-color: #10b981;
+  margin-top: -1.6em;
 }
 
 h2 {
@@ -49,23 +58,33 @@ ul {
   padding: 1rem 2rem;
   background: #273549;
   width: fit-content;
-  margin: auto;
+
   border-radius: 10px;
 }
 
 .password-length {
   width: 5rem;
   border: 0;
-  border-radius: 4px;
   padding: 0.5rem;
   margin: auto;
+  border-radius: 4px;
+  background-color: #9ca3af;
 }
 
+.password-length:focus {
+  border-bottom: 2px solid #10b981;
+}
+
+.password-length::-webkit-input-placeholder {
+  color: rgb(77, 73, 73);
+  font-family: poppins, sans-serif;
+}
 .generate-button {
   padding: 0.75em 1.5em;
   font-size: 16px;
   color: white;
   background: #10b981;
+  font-family: poppins, sans-serif;
   border: 0;
   border-radius: 6px;
   cursor: pointer;
@@ -73,6 +92,10 @@ ul {
 
 .generate-button:hover {
   background: #34d399;
+}
+
+.green-text {
+  color: #10b981;
 }
 
 .entries {
@@ -83,4 +106,10 @@ ul {
 .password-length:focus {
   border: 0;
   outline: 0;
+}
+
+@media screen and (max-width: 450px) {
+  .generate-button {
+    font-size: 12px;
+  }
 }

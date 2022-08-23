@@ -1,4 +1,10 @@
-const passwordLength = document.querySelector(".password-length").value;
+let passwordLengthInput = document.querySelector(".password-length");
+let passwordLength = passwordLengthInput.min;
+passwordLengthInput.addEventListener(
+  "input",
+  () => (passwordLength = passwordLengthInput.value)
+);
+
 const generateButton = document.querySelector(".generate-button");
 let passwordField = document.querySelector(".password-field");
 const characters = [
@@ -83,17 +89,15 @@ const characters = [
   "[",
   "]",
 ];
-let password = "";
 
 function passwordGenerator(length) {
+  let password = "";
   for (let i = 0; i < length; i++) {
     password += characters[Math.trunc(Math.random() * 80)];
   }
-  console.log(password);
+  return password;
 }
 
-passwordGenerator(10);
-
-// generateButton.addEventListener("click", function () {
-//   passwordField.textContent = passwordGenerator(passwordLength);
-// });
+generateButton.addEventListener("click", function () {
+  passwordField.textContent = passwordGenerator(passwordLength);
+});
