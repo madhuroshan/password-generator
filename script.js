@@ -100,6 +100,16 @@ function passwordGenerator(length) {
   return password;
 }
 
+function copyPasswordClipBoard() {
+  let copyPassword = passwordField;
+  copyPassword.select();
+  copyPassword.setSelectionRange(0, 99999);
+
+  document.execCommand("copy");
+}
+
+passwordField.addEventListener("click", copyPasswordClipBoard);
+
 generateButton.addEventListener("click", function () {
   passwordField.textContent = passwordGenerator(passwordLength);
 });
