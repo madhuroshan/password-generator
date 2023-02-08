@@ -51,6 +51,10 @@ ul {
   place-items: center;
 }
 
+.password-field:hover {
+  cursor: pointer;
+}
+
 .space {
   height: 3px;
   width: 90%;

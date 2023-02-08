@@ -9,6 +9,8 @@ const generateButton = document.querySelector(".generate-button");
 let passwordField = document.querySelector(".password-field");
 
 passwordField.textContent = "";
+
+// Prettier Ignore
 const characters = [
   "a",
   "b",
@@ -84,7 +86,6 @@ const characters = [
   ">",
   ",",
   ".",
-  "\\",
   "|",
   "{",
   "}",
@@ -100,16 +101,18 @@ function passwordGenerator(length) {
   return password;
 }
 
-function copyPasswordClipBoard() {
-  let copyPassword = passwordField;
-  copyPassword.select();
-  copyPassword.setSelectionRange(0, 99999);
-
-  document.execCommand("copy");
-}
-
-passwordField.addEventListener("click", copyPasswordClipBoard);
-
 generateButton.addEventListener("click", function () {
   passwordField.textContent = passwordGenerator(passwordLength);
 });
+
+const copyPasswordClipBoard = async () => {
+  let text = passwordField.textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+    console.log("Content copied to clipboard");
+  } catch (err) {
+    console.error("Failed to copy: ", err);
+  }
+};
+
+passwordField.addEventListener("click", copyPasswordClipBoard);
