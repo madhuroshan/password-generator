@@ -148,8 +148,30 @@ a > img {
   width: 24px;
 }
 
+.fade-away-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @media screen and (max-width: 450px) {
   .generate-button {
     font-size: 12px;
+  }
+}
+
+@keyframes fadeAwayPopup {
+  0% {
+    opacity: 0%;
+    scale: 0;
+  }
+
+  50% {
+    opacity: 100%;
+    scale: 1;
+  }
+
+  100% {
   }
 }
