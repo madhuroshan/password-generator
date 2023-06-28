@@ -4,64 +4,43 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privaciee : Secure Password Generator</title>
+    <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="./images/favicon_io/favicon.ico" />
     <script src="script.js" defer></script>
-
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
-    </style>
   </head>
   <body>
-    <nav class="navbar">
-      <h1 class="logo">Privaci<span class="blue-text">ee</span></h1>
-    </nav>
-
-    <div class="wrapper">
-      <h2>
-        Generate a <br />
-        <span class="green-text">random password</span>
-      </h2>
-      <p>Never use an insecure password again</p>
-
-      <div class="container">
-        <h2>Password Generator</h2>
-
-        <div class="entries">
-          <input
-            type="number"
-            class="password-length"
-            min="8"
-            max="15"
-            placeholder="Length"
-          />
-          <br />
-          <button class="generate-button">Generate Password</button>
-        </div>
-        <div class="space"></div>
-        <div class="password-field"></div>
+    <h1>Privaciee - Password Generator</h1>
+    <div class="form">
+      <label for="passwordLength">Password Length: </label>
+      <span id="passwordLengthValue"></span>
+      <input type="range" id="passwordLength" min="6" max="20" value="8" />
+      <br />
+      <label for="includeSpecialChars">Include Special Characters:</label>
+      <label class="switch">
+        <input type="checkbox" id="includeSpecialChars" />
+        <span class="slider round"></span>
+      </label>
+      <br />
+      <label for="includeUppercase">Include Uppercase Characters:</label>
+      <label class="switch">
+        <input type="checkbox" id="includeUppercase" />
+        <span class="slider round"></span>
+      </label>
+      <br />
+      <label for="includeNumbers">Include Numbers:</label>
+      <label class="switch">
+        <input type="checkbox" id="includeNumbers" />
+        <span class="slider round"></span>
+      </label>
+      <br />
+      <button onclick="generatePassword()">Generate Password</button>
+      <br />
+      <div>
+        <label for="password">Generated Password:</label>
+        <input type="text" id="password" readonly />
       </div>
+
+      <button onclick="copyToClipboard()">Copy to Clipboard</button>
     </div>
-
-    <div class="fade-away-popup">Copied to Clipboard</div>
-    <footer class="footer">
-      <div class="copyrights">&copy; 2022 Roshan, Inc.</div>
-      <div class="social-media-links">
-        <a href="https://github.com/madhuroshan/"
-          ><img
-            src="./social/317712_code repository_github_repository_resource_icon.png"
-          />
-        </a>
-        <a href="https://twitter.com/madhuroshann/"
-          ><img src="./social/5282551_tweet_twitter_twitter logo_icon.png" />
-        </a>
-        <a href="https://www.linkedin.com/in/madhu-roshan-917143243/"
-          ><img
-            src="./social/5282542_linkedin_network_social network_linkedin logo_icon (1).png"
-          />
-        </a>
-      </div>
-    </footer>
   </body>
 </html>

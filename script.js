@@ -1,118 +1,48 @@
-let passwordLengthInput = document.querySelector(".password-length");
-let passwordLength = passwordLengthInput.min;
-passwordLengthInput.addEventListener(
-  "input",
-  () => (passwordLength = passwordLengthInput.value)
-);
+let length = document.getElementById("passwordLength");
 
-const generateButton = document.querySelector(".generate-button");
-let passwordField = document.querySelector(".password-field");
+document.getElementById("passwordLengthValue").textContent = length.value;
 
-passwordField.textContent = "";
-
-// Prettier Ignore
-const characters = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-  "!",
-  "@",
-  "#",
-  "$",
-  "%",
-  "^",
-  "&",
-  "*",
-  "(",
-  ")",
-  "-",
-  "_",
-  "+",
-  "=",
-  "`",
-  "~",
-  "/",
-  "?",
-  "<",
-  ">",
-  ",",
-  ".",
-  "|",
-  "{",
-  "}",
-  "[",
-  "]",
-];
-
-function passwordGenerator(length) {
-  let password = "";
-  for (let i = 0; i < length; i++) {
-    password += characters[Math.trunc(Math.random() * 80)];
-  }
-  return password;
-}
-
-generateButton.addEventListener("click", function () {
-  passwordField.textContent = passwordGenerator(passwordLength);
+document.getElementById("passwordLength").addEventListener("change", () => {
+  document.getElementById("passwordLengthValue").textContent = length.value;
 });
 
-const copyPasswordClipBoard = async () => {
-  let text = passwordField.textContent;
-  try {
-    await navigator.clipboard.writeText(text);
-    console.log("Content copied to clipboard");
-  } catch (err) {
-    console.error("Failed to copy: ", err);
-  }
-};
+function generatePassword() {
+  const includeSpecialChars = document.getElementById(
+    "includeSpecialChars"
+  ).checked;
+  const includeUppercase = document.getElementById("includeUppercase").checked;
+  const includeNumbers = document.getElementById("includeNumbers").checked;
 
-passwordField.addEventListener("click", copyPasswordClipBoard);
+  // Rest of the code for generating the password
+
+  let password = "";
+  let allowedChars = "abcdefghijklmnopqrstuvwxyz";
+
+  const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const specialChars = "!@#$%^&*()_+{}[]~-=`|\\:;\"'<>,.?/";
+  const numberChars = "0123456789";
+
+  if (includeSpecialChars) {
+    allowedChars += specialChars;
+  }
+  if (includeUppercase) {
+    allowedChars += uppercaseChars;
+  }
+  if (includeNumbers) {
+    allowedChars += numberChars;
+  }
+
+  for (let i = 0; i < length.value; i++) {
+    const randomIndex = Math.floor(Math.random() * allowedChars.length);
+    password += allowedChars.charAt(randomIndex);
+  }
+
+  document.getElementById("password").value = password;
+}
+
+function copyToClipboard() {
+  const passwordInput = document.getElementById("password");
+  passwordInput.select();
+  passwordInput.setSelectionRange(0, 99999); // For mobile devices
+  document.execCommand("copy");
+}
