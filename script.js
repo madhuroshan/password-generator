@@ -35,9 +35,8 @@ function generatePassword() {
   for (let i = 0; i < length.value; i++) {
     const randomIndex = Math.floor(Math.random() * allowedChars.length);
     password += allowedChars.charAt(randomIndex);
+    document.getElementById("password").value = password;
   }
-
-  document.getElementById("password").value = password;
 }
 
 function copyToClipboard() {
