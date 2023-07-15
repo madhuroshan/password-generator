@@ -1,26 +1,19 @@
-let length = document.getElementById("passwordLength");
-
-document.getElementById("passwordLengthValue").textContent = length.value;
-
-document.getElementById("passwordLength").addEventListener("change", () => {
-  document.getElementById("passwordLengthValue").textContent = length.value;
-});
-
+// Generate a random password
 function generatePassword() {
+  const length = document.getElementById("passwordLength").value;
   const includeSpecialChars = document.getElementById(
     "includeSpecialChars"
   ).checked;
   const includeUppercase = document.getElementById("includeUppercase").checked;
   const includeNumbers = document.getElementById("includeNumbers").checked;
 
-  // Rest of the code for generating the password
-
-  let password = "";
-  let allowedChars = "abcdefghijklmnopqrstuvwxyz";
-
+  const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
   const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const specialChars = "!@#$%^&*()_+{}[]~-=`|\\:;\"'<>,.?/";
   const numberChars = "0123456789";
+
+  let password = "";
+  let allowedChars = lowercaseChars;
 
   if (includeSpecialChars) {
     allowedChars += specialChars;
@@ -32,16 +25,28 @@ function generatePassword() {
     allowedChars += numberChars;
   }
 
-  for (let i = 0; i < length.value; i++) {
-    const randomIndex = Math.floor(Math.random() * allowedChars.length);
-    password += allowedChars.charAt(randomIndex);
-    document.getElementById("password").value = password;
+  const passwordInput = document.getElementById("password");
+  passwordInput.value = ""; // Clear the input field
+
+  let index = 0;
+  function generateCharacter() {
+    if (index < length) {
+      const randomIndex = Math.floor(Math.random() * allowedChars.length);
+      const char = allowedChars.charAt(randomIndex);
+      password += char;
+      passwordInput.value = password;
+      index++;
+      setTimeout(generateCharacter, 300); // Delay of 0.5 seconds (500 milliseconds)
+    }
   }
+
+  generateCharacter();
 }
 
+// Copy the generated password to the clipboard
 function copyToClipboard() {
   const passwordInput = document.getElementById("password");
   passwordInput.select();
-  passwordInput.setSelectionRange(0, 99999); // For mobile devices
+  passwordInput.setSelectionRange(0, 99999);
   document.execCommand("copy");
 }

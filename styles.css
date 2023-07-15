@@ -1,9 +1,13 @@
 body {
   font-family: Arial, sans-serif;
+  background-image: url(./images/bg.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
 h1 {
   text-align: center;
+  color: white;
 }
 
 .form {
@@ -158,4 +162,5 @@ input:checked + .slider:before {
   border: 2px solid gray;
   width: max-content;
   margin-bottom: 10px;
+  letter-spacing: 0.3rem;
 }
