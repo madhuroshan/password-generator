@@ -1,161 +1,100 @@
-body {
-  font-family: Arial, sans-serif;
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Karla", sans-serif;
 }
 
-h1 {
+.info {
+  height: 100%;
+  background-color: rgb(95, 160, 110);
+  padding: 2rem 1.5rem;
+}
+
+button {
+  background-color: dodgerblue;
+  border: 0;
+  color: white;
+  padding: 1rem;
+}
+
+.container {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  text-align: center;
+  padding: 1rem;
+}
+.display {
+  background-color: rgb(211, 211, 211);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.password {
+  padding: 1rem;
+  flex-grow: 1;
   text-align: center;
 }
 
+.generate-btn {
+  border-radius: 6px;
+}
+
 .form {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 500px;
+  align-items: stretch;
+  justify-content: center;
+  padding: 5rem;
+  box-shadow: 0 0 15px 1px #777;
+  border-radius: 8px;
+  margin: auto;
 }
 
-label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-input[type="range"] {
-  -webkit-appearance: none;
+.include {
   width: 100%;
-  height: 5px;
-  border-radius: 5px;
-  background-color: #ccc;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  background-color: aliceblue;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(128, 128, 128, 0.566);
 }
 
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: #4caf50;
-  cursor: pointer;
+.size-input-container {
+  display: flex;
+  gap: 2rem;
 }
 
-input[type="range"]::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: #4caf50;
-  cursor: pointer;
-}
-
-input[type="range"]:focus {
-  opacity: 1;
-}
-
-input[type="range"]::-ms-track {
+.size-input {
   width: 100%;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
 }
 
-input[type="range"]::-webkit-slider-thumb:hover {
-  background-color: #45a049;
+.copy-btn {
+  padding: 0.5rem 1rem;
 }
 
-input[type="range"]::-moz-range-thumb:hover {
-  background-color: #45a049;
-}
+@media screen and (max-width: 500px) {
+  .form {
+    padding: 1rem;
+    margin: 0 1rem;
+  }
 
-input[type="number"],
-input[type="checkbox"],
-button {
-  margin-bottom: 15px;
-}
-button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #4caf50;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #4caf50;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-#password {
-  padding: 5px 10px;
-  border: none;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  font-size: 24px;
-  outline: none;
-  border: 2px solid gray;
-  width: max-content;
-  margin-bottom: 10px;
+  .display {
+    flex-direction: column;
+  }
 }

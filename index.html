@@ -5,43 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privaciee - Random Password Generator</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;1,300;1,400&display=swap");
+    </style>
     <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h1>Privaciee - Password Generator</h1>
-    <div class="form">
-      <label for="passwordLength">Password Length: </label>
-      <span id="passwordLengthValue"></span>
-      <input type="range" id="passwordLength" min="6" max="20" value="8" />
-      <br />
-      <label for="includeSpecialChars">Include Special Characters:</label>
-      <label class="switch">
-        <input type="checkbox" id="includeSpecialChars" />
-        <span class="slider round"></span>
-      </label>
-      <br />
-      <label for="includeUppercase">Include Uppercase Characters:</label>
-      <label class="switch">
-        <input type="checkbox" id="includeUppercase" />
-        <span class="slider round"></span>
-      </label>
-      <br />
-      <label for="includeNumbers">Include Numbers:</label>
-      <label class="switch">
-        <input type="checkbox" id="includeNumbers" />
-        <span class="slider round"></span>
-      </label>
-      <br />
-      <button onclick="generatePassword()">Generate Password</button>
-      <br />
-      <div>
-        <label for="password">Generated Password:</label>
-        <input type="text" id="password" readonly />
+    <div class="container">
+      <h1 class="title">Privaciee - Random Password Generator</h1>
+      <div class="form">
+        <div class="display">
+          <div id="password" class="password" id="password"></div>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <br />
+        <br />
+        <div class="include size-input-container">
+          <span>Size</span>
+          <input type="range" min="6" max="20" value="8" class="size-input" />
+          <span class="size"></span>
+        </div>
+        <div class="include">
+          <span>Include Uppercase</span>
+          <input type="checkbox" id="upper-case" />
+        </div>
+        <div class="include">
+          <span>Include Numbers</span>
+          <input type="checkbox" id="numbers" />
+        </div>
+        <div class="include">
+          <span>Include Special Chars </span>
+          <input type="checkbox" id="spl-chars" />
+        </div>
+        <button class="generate-btn">Generate</button>
       </div>
-
-      <button onclick="copyToClipboard()">Copy to Clipboard</button>
     </div>
   </body>
 </html>
