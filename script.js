@@ -26,13 +26,20 @@ function generatePassword() {
   let password = "";
 
   const length = sizeInput.value;
-  for (let i = 0; i < length; i++) {
-    password += characters.charAt(
-      Math.floor(Math.random() * characters.length)
-    );
+  let i = 0;
+
+  function generate() {
+    if (i < length) {
+      password += characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+      document.querySelector(".password").textContent = password;
+      i++;
+    }
+    setTimeout(generate, 150);
   }
 
-  document.querySelector(".password").textContent = password;
+  generate();
 }
 
 //Function to copy to clipboard

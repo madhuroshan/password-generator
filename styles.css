@@ -20,6 +20,10 @@ button {
   padding: 1rem;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .container {
   background-color: transparent;
   width: 100%;
@@ -43,6 +47,7 @@ button {
   padding: 1rem;
   flex-grow: 1;
   text-align: center;
+  letter-spacing: 0.2rem;
 }
 
 .generate-btn {
