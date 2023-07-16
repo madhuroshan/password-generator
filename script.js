@@ -1,52 +1,58 @@
-// Generate a random password
-function generatePassword() {
-  const length = document.getElementById("passwordLength").value;
-  const includeSpecialChars = document.getElementById(
-    "includeSpecialChars"
-  ).checked;
-  const includeUppercase = document.getElementById("includeUppercase").checked;
-  const includeNumbers = document.getElementById("includeNumbers").checked;
+let sizeInd = document.querySelector(".size");
+let sizeInput = document.querySelector(".size-input");
+sizeInd.textContent = sizeInput.value;
+sizeInput.addEventListener("change", () => {
+  sizeInd.textContent = sizeInput.value;
+});
 
-  const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-  const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const specialChars = "!@#$%^&*()_+{}[]~-=`|\\:;\"'<>,.?/";
-  const numberChars = "0123456789";
+function generatePassword() {
+  let includeNumbers = document.getElementById("numbers").checked;
+  let includeSpecialChars = document.getElementById("spl-chars").checked;
+  let includeUppercase = document.getElementById("upper-case").checked;
+
+  //inclusion and exclusions of characters
+  let characters = "abcdefghijklmnopqrstuvwxyz";
+  if (includeNumbers) {
+    characters += "0123456789";
+  }
+
+  if (includeUppercase) {
+    characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  }
+  if (includeSpecialChars) {
+    characters += "!@#$%^&*()_+{}[]~-=`|\\:;\"'<>,.?/";
+  }
 
   let password = "";
-  let allowedChars = lowercaseChars;
 
-  if (includeSpecialChars) {
-    allowedChars += specialChars;
-  }
-  if (includeUppercase) {
-    allowedChars += uppercaseChars;
-  }
-  if (includeNumbers) {
-    allowedChars += numberChars;
+  const length = sizeInput.value;
+  for (let i = 0; i < length; i++) {
+    password += characters.charAt(
+      Math.floor(Math.random() * characters.length)
+    );
   }
 
-  const passwordInput = document.getElementById("password");
-  passwordInput.value = ""; // Clear the input field
-
-  let index = 0;
-  function generateCharacter() {
-    if (index < length) {
-      const randomIndex = Math.floor(Math.random() * allowedChars.length);
-      const char = allowedChars.charAt(randomIndex);
-      password += char;
-      passwordInput.value = password;
-      index++;
-      setTimeout(generateCharacter, 300); // Delay of 0.5 seconds (500 milliseconds)
-    }
-  }
-
-  generateCharacter();
+  document.querySelector(".password").textContent = password;
 }
 
-// Copy the generated password to the clipboard
+//Function to copy to clipboard
+
 function copyToClipboard() {
-  const passwordInput = document.getElementById("password");
-  passwordInput.select();
-  passwordInput.setSelectionRange(0, 99999);
+  var range = document.createRange();
+  range.selectNode(document.getElementById("password"));
+  window.getSelection().removeAllRanges(); // clear current selection
+  window.getSelection().addRange(range); // to select text
   document.execCommand("copy");
+  window.getSelection().removeAllRanges(); // to deselect
 }
+
+//attached event listeners to buttons
+const generateBtn = document.querySelector(".generate-btn");
+generateBtn.addEventListener("click", () => {
+  generatePassword();
+});
+
+const copyBtn = document.querySelector(".copy-btn");
+copyBtn.addEventListener("click", () => {
+  copyToClipboard();
+});
